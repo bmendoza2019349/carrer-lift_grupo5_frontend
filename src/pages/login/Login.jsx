@@ -1,3 +1,5 @@
+import "../login/Login.css"
+
 const Login = () => {
     return (
         <div className="h-screen w-screen bg-gradient-to-r from-[#902ef2] to-[#4b94f2]">
@@ -39,7 +41,7 @@ const Login = () => {
                                     </div>
                                 </form>
                                 <div className="text-center mt-4">
-                                    <a className="no-underline hover:underline text-blue-dark text-xs" href="#">
+                                    <a className="no-underline hover:underline text-blue-dark text-xs" href={"/register"}>
                                         No tienes cuenta?
                                     </a>
                                 </div>
