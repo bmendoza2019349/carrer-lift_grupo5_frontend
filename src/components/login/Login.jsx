@@ -1,6 +1,6 @@
-import "../login/Login.css"
+import "./Login.css"
 
-const Login = () => {
+export const Login = () => {
     return (
         <div className="h-screen w-screen bg-gradient-to-r from-[#902ef2] to-[#4b94f2]">
             <div className="flex flex-col items-center flex-1 h-full justify-center px-4 sm:px-0">

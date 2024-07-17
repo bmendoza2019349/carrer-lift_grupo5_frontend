@@ -1,7 +1,7 @@
 import React from 'react'
-import "../login/Login.css"
+import "./Login.css"
 
-function Register() {
+export const Register = () => {
     return (
         <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-[#902ef2] to-[#4b94f2]">
             <div className="max-w-md w-full p-6 bg-white rounded-lg shadow-lg">
