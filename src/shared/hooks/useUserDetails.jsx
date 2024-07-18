@@ -21,6 +21,7 @@ export const useUserDetails = () => {
         isLogged: Boolean( userDetails ),
         name: userDetails?.name ? userDetails.name : "Guest",
         lastName: userDetails?.lastName ? userDetails.lastName : "",
+        username: userDetails?.username ? userDetails.username : "",
         email: userDetails?.email ? userDetails.email : "",
         rolerUser: userDetails?.rolerUser ? userDetails.rolerUser : "",
         numbercel: userDetails?.numbercel ? userDetails.numbercel : "",

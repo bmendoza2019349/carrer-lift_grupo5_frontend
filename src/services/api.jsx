@@ -2,7 +2,7 @@ import axios from "axios";
 import { logout } from "../shared/hooks";
 
 const apiClient = axios.create( {
-    baseURL: 'http://127.0.0.1:8080/carrerLiftApi/v1',
+    baseURL: 'https://carrer-lift-grupo5-backend.vercel.app',
     timeout: 5000
 } );
 
