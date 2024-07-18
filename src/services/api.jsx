@@ -94,17 +94,22 @@ export const getCourseById = async (courseId) => {
 
 // ** Modules **
 export const uploadVideo = async (courseId, moduleId, files) => {
-  try {
-    const formData = new FormData();
-    files.forEach(file => formData.append('videos', file));
-
-    return await apiClient.post(`/course/${courseId}/modules/${moduleId}`, formData, {
-      headers: { 'Content-Type': 'multipart/form-data' }
-    });
-  } catch (error) {
-    return { error: true, error };
-  }
-};
+    try {
+      const formData = new FormData();
+      files.forEach(file => {
+        formData.append('videos', file);
+      });
+  
+      return await apiClient.post(`/course/${courseId}/modules/${moduleId}/videos`, formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data'
+        }
+      });
+    } catch (error) {
+      return { error: true, message: error.response?.data?.message || error.message };
+    }
+  };
+   
 
 export const getVideos = async (courseId, moduleId) => {
   try {
