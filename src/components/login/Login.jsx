@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import "./Login.css";
 import { Input } from '../input/Input';
+import { useLogin } from '../../shared/hooks';
 
 export const Login = ( { switchAuthHandler } ) => {
     const [formData, setFormData] = useState( {
@@ -14,6 +15,13 @@ export const Login = ( { switchAuthHandler } ) => {
             [field]: value
         } );
     };
+
+    const { login } = useLogin();
+    const handleSubmit = ( e ) => {
+        e.preventDefault();
+        login( formData.email, formData.password );
+    }
+
 
     return (
         <div className="h-screen w-screen bg-gradient-to-r from-[#902ef2] to-[#4b94f2]">
@@ -45,7 +53,7 @@ export const Login = ( { switchAuthHandler } ) => {
                                         />
                                     </div>
                                     <div className="flex flex-col mt-8">
-                                        <button type="submit" className="bg-blue-500 hover:bg-blue-700 text-white text-sm font-semibold py-2 px-4 rounded">
+                                        <button onClick={handleSubmit} className="bg-blue-500 hover:bg-blue-700 text-white text-sm font-semibold py-2 px-4 rounded">
                                             Login
                                         </button>
                                     </div>

@@ -7,16 +7,28 @@ import './dashboardPage.css'
 export const DashboardPage = () => {
     const { isLogged } = useUserDetails()
 
-    if ( !isLogged ) {
-        return <LoadingSpinner />
-    }
+
 
     return (
-        <div className="dashboard-container">
-            <Navbar />
-            <Sidebar />
-            <Content />
-        </div>
+        <>
+            <div className="dashboard-container">
+                <Navbar />
+                <Sidebar />
+                <div className="dashboard-content-container {
+">
+                    {isLogged ? (
+                        <div>
+                            <h1>Dashboard</h1>
+                        </div>
+                    ) : (
+                        <div>
+                            <h1>No Logged</h1>
+                        </div>
+                    )}
+                </div>
+
+            </div>
+        </>
     )
 
 }
