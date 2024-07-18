@@ -15,17 +15,13 @@ export const useUserDetails = () => {
 
     const logout = () => {
         logoutHandler();
+        setUserDetails(null);
     };
 
     return {
         isLogged: Boolean( userDetails ),
-        name: userDetails?.name ? userDetails.name : "Guest",
-        lastName: userDetails?.lastName ? userDetails.lastName : "",
-        email: userDetails?.email ? userDetails.email : "",
-        rolerUser: userDetails?.rolerUser ? userDetails.rolerUser : "",
-        numbercel: userDetails?.numbercel ? userDetails.numbercel : "",
-        address: userDetails?.address ? userDetails.address : "",
-        birthdate: userDetails?.birthdate ? userDetails.birthdate : "",
+        username: userDetails?.username ? userDetails.username : "Guest",
+        roleUser: userDetails?.roleUser,
         logout,
     };
 };

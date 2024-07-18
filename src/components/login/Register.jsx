@@ -11,13 +11,10 @@ export const Register = () => {
                 <h1 className="text-2xl font-semibold text-center text-gray-500 mt-8 mb-6 ">Registro</h1>
                 <form>
                     <div className="mb-4">
-                        <label htmlFor="nombre" className="block mb-2 text-sm text-gray-600">Nombre y apellido</label>
-                        <input type="text" id="nombre" name="nombre" className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500" required />
+                        <label htmlFor="username" className="block mb-2 text-sm text-gray-600">UserName</label>
+                        <input type="text" id="username" name="username" className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500" required />
                     </div>
-                    <div className="mb-4">
-                        <label htmlFor="apellido" className="block mb-2 text-sm text-gray-600">Apellido</label>
-                        <input type="text" id="apellido" name="apellido" className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500" required />
-                    </div>
+
                     <div className="mb-4">
                         <label htmlFor="email" className="block mb-2 text-sm text-gray-600">Correo electrónico</label>
                         <input type="email" id="email" name="email" className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500" required />
