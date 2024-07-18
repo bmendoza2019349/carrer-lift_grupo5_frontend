@@ -104,7 +104,8 @@ export const updateCourse = async ( courseId, data ) => {
 
 export const postCourses = async ( data ) => {
     try {
-        return await apiClient.post( '/course/', data )
+        const response = await apiClient.post( '/course/', data )
+        return response.data;
     } catch ( e ) {
         return {
             error: true,

@@ -28,8 +28,6 @@ export const CoursesAdd = () => {
             showError: false,
         }
     } )
-    const userFortoken = localStorage.getItem( 'user' )
-    const { token } = JSON.parse( userFortoken )
 
 
     const handleInputValueChange = ( value, field ) => {
@@ -70,7 +68,12 @@ export const CoursesAdd = () => {
 
     const handleCourseAdd = ( event ) => {
         event.preventDefault();
-        post( formState.nameCourse.value, formState.descripcion.value, formState.img.value )
+        const nuevoCurso = {
+            nameCourse: formState.nameCourse.value,
+            descripcion: formState.descripcion.value,
+            img: formState.img.value
+        }
+        post( nuevoCurso )
     }
 
     const isSubmitButtonDisabled = loading ||

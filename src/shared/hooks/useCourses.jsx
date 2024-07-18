@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import { getCourses as getCoursesRequest, postCourses as postCoursesRequest } from '../../services';
 import toast from 'react-hot-toast';
+import { Navigate } from 'react-router-dom';
 
 export const useCourses = () => {
     const [courses, setCourses] = useState( [] );
@@ -16,7 +17,9 @@ export const useCourses = () => {
                 throw new Error( result.message );
             }
             console.log( 'Cursos:', result.data )
-            setCourses( Array.isArray( result ) ? result.data : [] );
+            Array.isArray( result.data.courses ) ?
+                setCourses( result.data.courses ) :
+                console.log( 'El resultado no es un array' )
         } catch ( err ) {
             setError( err.message );
             toast.error( err.message );
@@ -27,6 +30,12 @@ export const useCourses = () => {
     useEffect( () => {
         fetchCourses();
     }, [fetchCourses] );
+
+    useEffect(
+        () => {
+            console.log( 'Cursos despues del set', courses )
+        }, [courses]
+    )
 
 
     const postCourses = useCallback( async ( data ) => {
@@ -39,7 +48,7 @@ export const useCourses = () => {
                 throw new Error( result.message );
             }
             setCourses( ( existCursos ) => [...existCursos, result] );
-
+            Navigate( '/courses' )
         } catch ( err ) {
             setError( err.message )
             toast.error( err.message )
