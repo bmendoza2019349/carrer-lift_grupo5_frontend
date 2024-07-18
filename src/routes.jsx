@@ -9,7 +9,7 @@ import { Courses } from './components/Courses/Courses.jsx';
 const routes = [
     { path: '/auth', element: <AuthPage /> },
     { path: '/*', element: <DashboardPage /> },
-    { path: '/modules', element: <ModulesList /> },
+    { path: '/upload', element: <uploadVideos /> },
     { path: '/coursesAdd', element: <CoursesAdd /> },
     { path: '/courses', element: <Courses /> },
 ];
