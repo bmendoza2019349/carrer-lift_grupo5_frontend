@@ -1,6 +1,20 @@
-import "./Login.css"
+import React, { useState } from 'react';
+import "./Login.css";
+import { Input } from '../input/Input';
 
-export const Login = () => {
+export const Login = ( { switchAuthHandler } ) => {
+    const [formData, setFormData] = useState( {
+        email: '',
+        password: ''
+    } );
+
+    const handleChange = ( value, field ) => {
+        setFormData( {
+            ...formData,
+            [field]: value
+        } );
+    };
+
     return (
         <div className="h-screen w-screen bg-gradient-to-r from-[#902ef2] to-[#4b94f2]">
             <div className="flex flex-col items-center flex-1 h-full justify-center px-4 sm:px-0">
@@ -11,29 +25,25 @@ export const Login = () => {
                             <div className="w-full mt-4">
                                 <form className="form-horizontal w-3/4 mx-auto" method="POST" action="#">
                                     <div className="flex flex-col mt-4">
-                                        <input
-                                            id="email"
+                                        <Input
+                                            field="email"
+                                            label="Email"
                                             type="text"
-                                            className="flex-grow h-8 px-2 border rounded border-grey-400"
-                                            name="email"
+                                            value={formData.email}
+                                            onChangeHandler={handleChange}
                                             placeholder="Email"
                                         />
                                     </div>
                                     <div className="flex flex-col mt-4">
-                                        <input
-                                            id="password"
+                                        <Input
+                                            field="password"
+                                            label="Password"
                                             type="password"
-                                            className="flex-grow h-8 px-2 rounded border border-grey-400"
-                                            name="password"
-                                            required
+                                            value={formData.password}
+                                            onChangeHandler={handleChange}
                                             placeholder="Password"
                                         />
                                     </div>
-                                    {/*<div className="flex items-center mt-4">
-                                        <input type="checkbox" name="remember" id="remember" className="mr-2" />
-                                        <label htmlFor="remember" className="text-sm text-grey-dark">Remember Me</label>
-                                    </div>*/ }
-
                                     <div className="flex flex-col mt-8">
                                         <button type="submit" className="bg-blue-500 hover:bg-blue-700 text-white text-sm font-semibold py-2 px-4 rounded">
                                             Login
@@ -41,9 +51,12 @@ export const Login = () => {
                                     </div>
                                 </form>
                                 <div className="text-center mt-4">
-                                    <a className="no-underline hover:underline text-blue-dark text-xs" href={"/register"}>
+                                    <button
+                                        className="no-underline hover:underline text-blue-dark text-xs"
+                                        onClick={switchAuthHandler}
+                                    >
                                         No tienes cuenta?
-                                    </a>
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -63,4 +76,4 @@ export const Login = () => {
     );
 }
 
-export default Login
+export default Login;
