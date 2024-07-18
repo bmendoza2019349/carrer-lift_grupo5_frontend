@@ -1,5 +1,7 @@
 export { useLogin } from './useLogin'
 export { useRegister } from './useRegister'
-export { useHotels } from './useHotels'
-export { useHotelsDetails } from './useHotelsDetails'
-export { useReserveRoom } from './useReserveRoom'
+export { logout } from './useLogout'
+export { getModules } from './useGetModules'
+export { useUserDetails } from './useUserDetails'
+export { useCourses } from './useCourses'
+

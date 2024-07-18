@@ -71,6 +71,17 @@ export const updateModule = async ( moduleId, data ) => {
     try {
         return await apiClient.put( `/modules/${moduleId}`, data );
     } catch ( e ) {
+        return {
+            error: true,
+            e
+        };
+    }
+};
+
+export const postModule = async ( moduleId, data ) => {
+    try {
+        return await apiClient.post( `/modules/${moduleId}`, data );
+    } catch ( e ) {
         checkResponseStatus( e );
         return {
             error: true,
@@ -83,6 +94,19 @@ export const updateModule = async ( moduleId, data ) => {
 export const getCourses = async () => {
     try {
         return await apiClient.get( '/course' );
+    } catch ( e ) {
+        checkResponseStatus( e );
+        return {
+            error: true,
+            e
+        };
+    }
+};
+
+//getCourseById
+export const getCourseById = async ( courseId ) => {
+    try {
+        return await apiClient.get( `/course/${courseId}` );
     } catch ( e ) {
         checkResponseStatus( e );
         return {
