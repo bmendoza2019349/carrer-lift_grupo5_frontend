@@ -113,17 +113,7 @@ export const getVideos = async ( courseId, moduleId ) => {
     }
 };
 
-export const postCourses = async ( data ) => {
-    try {
-        const response = await apiClient.post( '/course/', data )
-        return response.data;
-    } catch ( e ) {
-        return {
-            error: true,
-            e
-        }
-    }
-}
+
 
 export const deleteVideo = async ( courseId, moduleId, videoName ) => {
     try {
