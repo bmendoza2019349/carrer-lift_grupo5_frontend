@@ -67,6 +67,18 @@ export const updateModule = async ( moduleId, data ) => {
     }
 };
 
+export const postModule = async ( moduleId, data ) => {
+    try {
+        return await apiClient.post( `/modules/${moduleId}`, data );
+    } catch (e) {
+        checkResponseStatus( e );
+        return {
+            error: true,
+            e
+        };
+    }
+};
+
 // Courses
 export const getCourses = async () => {
     try {
@@ -135,3 +147,4 @@ export const updateUser = async ( data ) => {
         };
     }
 };
+

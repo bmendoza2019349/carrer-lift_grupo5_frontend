@@ -1,28 +1,34 @@
-import { useEffect } from "react";
-//import { Navbar } from "../../components/navbars/Navbar";
-import { LoadingSpinner } from "../../components/LoadingSpinner";
-//import { Content } from "../../components/dashboard/Content";
-import { useUserDetails } from "../../shared/hooks";
+import { LoadingSpinner } from '../../components/LoadingSpinner'
+import { useUserDetails } from '../../shared/hooks'
+import { Navbar } from '../../components/navbars/Navbar'
+import { Sidebar } from '../../components/navbars/Sidebar'
 
+import './dashboardPage.css'
 export const DashboardPage = () => {
-    //const { getPublicaciones, allPublicaciones, isFetching } = usePublicaciones();
-    const { isLogged } = useUserDetails();
-  
-    useEffect(() => {
-      //getPublicaciones(isLogged);
-  
-    }, []);
-  
-    //if (isFetching) {
-    //  return <LoadingSpinner />;
-    //}
-  
-    //console.log("Publicaciones: ", allPublicaciones); // Para verificar que las publicaciones estén llegando
-    //<Content publicaciones={allPublicaciones || []} getPublicaciones={getPublicaciones} />
+    const { isLogged } = useUserDetails()
+
+
+
     return (
-      <div className="dashboard-container">
-        
-        
-      </div>
-    );
-  };
+        <>
+            <div className="dashboard-container">
+                <Navbar />
+                <Sidebar />
+                <div className="dashboard-content-container {
+">
+                    {isLogged ? (
+                        <div>
+                            <h1>Dashboard</h1>
+                        </div>
+                    ) : (
+                        <div>
+                            <h1>No Logged</h1>
+                        </div>
+                    )}
+                </div>
+
+            </div>
+        </>
+    )
+
+}

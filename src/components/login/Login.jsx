@@ -97,11 +97,6 @@ export const Login = ({ switchAuthHandler }) => {
                                             validationMessage={validatePasswordMessage}
                                         />
                                     </div>
-                                    {/*<div className="flex items-center mt-4">
-                                        <input type="checkbox" name="remember" id="remember" className="mr-2" />
-                                        <label htmlFor="remember" className="text-sm text-grey-dark">Remember Me</label>
-                                    </div>*/ }
-
                                     <div className="flex flex-col mt-8">
                                         <button onClick={handleLogin} disabled={isSubmitButtonDisabled} className="bg-blue-500 hover:bg-blue-700 text-white text-sm font-semibold py-2 px-4 rounded">
                                             Login
@@ -111,7 +106,7 @@ export const Login = ({ switchAuthHandler }) => {
                                 <div className="text-center mt-4">
                                     <a className="no-underline hover:underline text-blue-dark text-xs" onClick={switchAuthHandler}>
                                         No tienes cuenta?
-                                    </a>
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -131,4 +126,4 @@ export const Login = ({ switchAuthHandler }) => {
     );
 }
 
-export default Login
+export default Login;
