@@ -1,7 +1,7 @@
 import React from 'react';
-import { useCourses } from '../../shared/hooks';
+import useCourses from '../../shared/hooks'; // Ensure the path is correct based on your project structure
 
-export const Courses = () => {
+const Courses = () => {
     const { courses, loading, error, refetch } = useCourses();
 
     if ( loading ) {
@@ -27,6 +27,7 @@ export const Courses = () => {
                                 <li key={module._id}>
                                     <h4>{module.nameModule}</h4>
                                     <p>{module.descriptionModule}</p>
+                                    {/* Additional module details can be added here */}
                                 </li>
                             ) )}
                         </ul>
@@ -36,3 +37,5 @@ export const Courses = () => {
         </div>
     );
 };
+
+export default Courses;

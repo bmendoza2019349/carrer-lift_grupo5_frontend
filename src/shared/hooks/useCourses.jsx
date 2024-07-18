@@ -2,7 +2,7 @@ import { useState, useEffect, useCallback } from 'react';
 import { getCourses as getCoursesRequest } from '../../services';
 import toast from 'react-hot-toast'; // Ensure the path is correct based on your project structure
 
-export const useCourses = () => {
+const useCourses = () => {
     const [courses, setCourses] = useState( [] );
     const [loading, setLoading] = useState( true );
     const [error, setError] = useState( null );
@@ -31,3 +31,4 @@ export const useCourses = () => {
     return { courses, loading, error, refetch: fetchCourses };
 };
 
+export default useCourses;
