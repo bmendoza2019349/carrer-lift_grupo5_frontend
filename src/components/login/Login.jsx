@@ -104,7 +104,7 @@ export const Login = ({ switchAuthHandler }) => {
                                     </div>
                                 </form>
                                 <div className="text-center mt-4">
-                                    <a className="no-underline hover:underline text-blue-dark text-xs" onClick={switchAuthHandler}>
+                                    <button className="no-underline hover:underline text-blue-dark text-xs" onClick={switchAuthHandler}>
                                         No tienes cuenta?
                                     </button>
                                 </div>
