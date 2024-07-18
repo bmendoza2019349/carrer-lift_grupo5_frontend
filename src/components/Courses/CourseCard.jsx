@@ -15,6 +15,7 @@ export const CourseCard = () => {
 
     return (
         <div className="grid grid-cols-3 gap-4">
+            <button className='block px-4 py-2.5 bg-[#00AAE5] text-white hover:bg-[#00AAE4] hover:text-white rounded-lg' onClick={refetch}> Refrescar Cursos</button>
             {courses.map( ( course ) => (
                 <div key={course._id} className="bg-white p-4 shadow rounded">
                     <img src={course.img} alt={course.nameCourse} className="w-full h-48 object-cover" />

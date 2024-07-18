@@ -9,9 +9,9 @@ const apiClient = axios.create( {
 apiClient.interceptors.request.use(
     ( config ) => {
         const userDetails = localStorage.getItem( 'user' );
-
+        console.log( 'User details: ', userDetails )
         if ( userDetails ) {
-            const { token } = JSON.parse( userDetails ).token
+            const token = JSON.parse( userDetails ).token
             config.headers.Authorization = `Bearer ${token}`;
         }
         return config;
@@ -70,7 +70,7 @@ export const updateModule = async ( moduleId, data ) => {
 export const postModule = async ( moduleId, data ) => {
     try {
         return await apiClient.post( `/modules/${moduleId}`, data );
-    } catch (e) {
+    } catch ( e ) {
         checkResponseStatus( e );
         return {
             error: true,
@@ -101,6 +101,17 @@ export const updateCourse = async ( courseId, data ) => {
         };
     }
 };
+
+export const postCourses = async ( data ) => {
+    try {
+        return await apiClient.post( '/course/', data )
+    } catch ( e ) {
+        return {
+            error: true,
+            e
+        }
+    }
+}
 
 // Forms
 export const getForms = async () => {
