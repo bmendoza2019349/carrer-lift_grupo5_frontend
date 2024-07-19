@@ -12,9 +12,9 @@ export const CoursesView = () => {
     useEffect(() => {
         getCourseDetails(id);
     }, [id]);
-    
-    if(isFetching){
-        return <LoadingSpinner/>;
+
+    if (isFetching) {
+        return <LoadingSpinner />;
     }
 
     const courses = coursesDetails.data.course;

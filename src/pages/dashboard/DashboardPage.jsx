@@ -7,6 +7,7 @@ import { useCourses } from "../../shared/hooks/useCourses";
 
 
 import CardMotion from "../../components/dashboard/CardMotion";
+import SectionA from "../../components/dashboard/SectionA";
 export const DashboardPage = () => {
     const { getCourses, allCourses, isFetching } = useCourses();
     const { isLogged } = useUserDetails();

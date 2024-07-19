@@ -10,62 +10,62 @@ import {
 import { useLogin } from "../../shared/hooks";
 
 export const Login = ({ switchAuthHandler }) => {
-    const {login, isLoading} = useLogin();
-  
+    const { login, isLoading } = useLogin();
+
     const [formState, setFormState] = useState({
-      email: {
-        value: "",
-        isValid: false,
-        showError: false,
-      },
-      password: {
-        value: "",
-        isValid: false,
-        showError: false,
-      },
-    });
-  
-    const handleInputValueChange = (value, field) => {
-      setFormState((prevState) => ({
-        ...prevState,
-        [field]: {
-          ...prevState[field],
-          value,
+        email: {
+            value: "",
+            isValid: false,
+            showError: false,
         },
-      }));
+        password: {
+            value: "",
+            isValid: false,
+            showError: false,
+        },
+    });
+
+    const handleInputValueChange = (value, field) => {
+        setFormState((prevState) => ({
+            ...prevState,
+            [field]: {
+                ...prevState[field],
+                value,
+            },
+        }));
     };
-  
+
     const handleInputValidationOnBlur = (value, field) => {
-      let isValid = false;
-      switch (field) {
-        case "email":
-          isValid = validateEmail(value);
-          break;
-        case "password":
-          isValid = validatePassword(value);
-          break;
-        default:
-          break;
-      }
-      setFormState((prevState) =>({
-          ...prevState,
-          [field]:{
-              ...prevState[field],
-              isValid,
-              showError: !isValid
-          }
-      }))
+        let isValid = false;
+        switch (field) {
+            case "email":
+                isValid = validateEmail(value);
+                break;
+            case "password":
+                isValid = validatePassword(value);
+                break;
+            default:
+                break;
+        }
+        setFormState((prevState) => ({
+            ...prevState,
+            [field]: {
+                ...prevState[field],
+                isValid,
+                showError: !isValid
+            }
+        }))
     };
-  
+
     const handleLogin = (event) => {
-      event.preventDefault()
-      login(formState.email.value, formState.password.value)
+        event.preventDefault()
+        login(formState.email.value, formState.password.value)
     }
-  
+
     const isSubmitButtonDisabled = isLoading || !formState.password.isValid || !formState.email.isValid
 
     return (
-        <div className="h-screen w-screen bg-gradient-to-r from-[#902ef2] to-[#4b94f2]">
+        <div className="h-screen w-screen bg-gray-800">
             <div className="flex flex-col items-center flex-1 h-full justify-center px-4 sm:px-0">
                 <div className="flex rounded-lg shadow-lg w-full sm:w-3/4 lg:w-1/2 bg-white sm:mx-0" style={{ height: '500px' }}>
                     <div className="flex flex-col w-full md:w-1/2 p-4">
@@ -114,7 +114,7 @@ export const Login = ({ switchAuthHandler }) => {
                     <div
                         className="hidden md:block md:w-1/2 rounded-r-lg"
                         style={{
-                            background: "url('https://play-lh.googleusercontent.com/wKwW77zj6Gd-llTDakdjSDnWUPKSMDGXhnZSXel3A3qQSiM1cbDvuspBpQk15tiT9ik')",
+                            background: "url('https://i.postimg.cc/8cbFKHwn/img-Logo-Carrer-L.png')",
                             backgroundSize: 'cover',
                             backgroundPosition: 'center center',
                             backgroundRepeat: 'no-repeat'
