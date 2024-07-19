@@ -131,7 +131,7 @@ export const deleteVideo = async ( courseId, moduleId, videoName ) => {
 
 export const createModule = async ( courseId, data ) => {
     try {
-        return await apiClient.post( `/module/${courseId}`, data );
+        return await apiClient.post( `/modules/module/${courseId}`, data );
     } catch ( error ) {
         return { error: true, e };
     }
@@ -139,7 +139,7 @@ export const createModule = async ( courseId, data ) => {
 
 export const getModules = async ( courseId ) => {
     try {
-        return await apiClient.get( `/module/${courseId}` );
+        return await apiClient.get( `/modules/module/${courseId}` );
     } catch ( error ) {
         return { error: true, e };
     }
@@ -147,7 +147,7 @@ export const getModules = async ( courseId ) => {
 
 export const updateModule = async ( courseId, moduleId, data ) => {
     try {
-        return await apiClient.put( `/moduleEdit/${courseId}/${moduleId}`, data );
+        return await apiClient.put( `/modules/moduleEdit/${courseId}/${moduleId}`, data );
     } catch ( error ) {
         return { error: true, e };
     }
@@ -155,7 +155,7 @@ export const updateModule = async ( courseId, moduleId, data ) => {
 
 export const deleteModule = async ( courseId, moduleId ) => {
     try {
-        return await apiClient.delete( `/${courseId}/${moduleId}` );
+        return await apiClient.delete( `/modules/${courseId}/${moduleId}` );
     } catch ( error ) {
         return { error: true, e };
     }
@@ -164,7 +164,7 @@ export const deleteModule = async ( courseId, moduleId ) => {
 // Obtener un módulo por ID
 export const getModuleById = async ( courseId, moduleId ) => {
     try {
-        return await apiClient.get( `/courses/${courseId}/modules/${moduleId}` );
+        return await apiClient.get( `/modules/courses/${courseId}/modules/${moduleId}` );
     } catch ( error ) {
         return { error: true, e };
     }
@@ -172,7 +172,7 @@ export const getModuleById = async ( courseId, moduleId ) => {
 
 export const addUrlsToModule = async ( courseId, moduleId, urls ) => {
     try {
-        return await apiClient.post( `/${courseId}/module/${moduleId}/urls`, { archivos: urls } );
+        return await apiClient.patch( `/modules/${courseId}/module/${moduleId}/urls`, { videos: urls } );
     } catch ( error ) {
         return { error: true, e };
     }
