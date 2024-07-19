@@ -32,7 +32,7 @@ const Navbar = () => {
                             onClick={() => setIsDropdownOpen(!isDropdownOpen)}
                             className="text-gray-300 hover:text-white text-lg focus:outline-none"
                         >
-                            Servicios
+                            Opciones..
                         </button>
                         {isDropdownOpen && (
                             <div
@@ -40,9 +40,9 @@ const Navbar = () => {
                                 onMouseLeave={handleMouseLeave}
                                 className="absolute left-1/2 transform -translate-x-1/2 mt-2 w-56 bg-white rounded-md shadow-lg z-20"
                             >
-                                <a href="#web-design" className="block px-4 py-2 text-gray-800 hover:bg-gray-200">Diseño Web</a>
-                                <a href="#seo" className="block px-4 py-2 text-gray-800 hover:bg-gray-200">SEO</a>
-                                <a href="#marketing" className="block px-4 py-2 text-gray-800 hover:bg-gray-200">Marketing</a>
+                                <a href={"/assign"} className="block px-4 py-2 text-gray-800 hover:bg-gray-200">Asignar cursos</a>
+                                <a href={"/course/:id/coDelete"} className="block px-4 py-2 text-gray-800 hover:bg-gray-200">Eliminar curso</a>
+                                <a href="#marketing" className="block px-4 py-2 text-gray-800 hover:bg-gray-200">Eliminar modulo</a>
                             </div>
                         )}
                     </div>

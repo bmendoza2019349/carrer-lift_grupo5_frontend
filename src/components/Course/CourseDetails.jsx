@@ -2,8 +2,9 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useUserDetails } from "../../shared/hooks";
 import { ModuleVideos } from "./ModuleVideos";
+import { DeleteCourse } from "./DeleteCourse";
 
-const CoursesImg = ( { url } ) => {
+const CoursesImg = ({ url }) => {
     return (
         <div className="div">
             <img src={url} width='100%' height='100%' alt="Default publicacion" />
@@ -11,33 +12,33 @@ const CoursesImg = ( { url } ) => {
     )
 }
 
-export const CoursesDescription = ( {
+export const CoursesDescription = ({
     userCreator,
     nameCourse,
     img,
     descripcion,
     modulos,
     id
-} ) => {
+}) => {
     const navigate = useNavigate();
     const { roleUser, email } = useUserDetails();
     const isUserCreator = email === userCreator;
 
     const handleNavigateToAddModulesPage = () => {
-        navigate( `../../module/${id}` );
+        navigate(`../../module/${id}`);
     };
-    const handleNavigateToDeleteModulesPage = ( modulesId ) => {
-        navigate( `./modules/${modulesId}` );
+    const handleNavigateToDeleteModulesPage = (modulesId) => {
+        navigate(`./modules/${modulesId}`);
     };
     const handleNavigateToEditModulesPage = () => {
-        navigate( './updateMo' );
+        navigate('./updateMo');
     };
-    const handleNavigateToDeleteCoursesPage = ( Id ) => {
-        navigate( `./courses/${Id}` );
+    const handleNavigateToDeleteCoursesPage = (Id) => {
+        navigate(`./courses/${Id}`);
     };
 
     return (
-        <div className="max-w-4xl mx-auto bg-white rounded-2xl shadow-lg overflow-hidden md:max-w-6xl mt-[7rem]">
+        <> <div className="max-w-4xl mx-auto bg-white rounded-2xl shadow-lg overflow-hidden md:max-w-6xl mt-[4rem]">
             <div className="md:flex">
                 <div className="md:flex-shrink-0">
                     <img className="h-80 w-full object-cover md:h-full md:w-80" src={img} alt="Course Image" />
@@ -57,7 +58,7 @@ export const CoursesDescription = ( {
                             </button>
                         )}
                         <ul className="mt-6 space-y-4">
-                            {modulos && modulos.map( ( modulo ) => (
+                            {modulos && modulos.map((modulo) => (
                                 <li key={modulo._id} className="p-6 bg-gray-100 rounded-md">
                                     <div>
                                         <strong className="block text-lg">Nombre Modulo: {modulo.nameModule}</strong>
@@ -66,11 +67,14 @@ export const CoursesDescription = ( {
                                     </div>
                                     <ModuleVideos courseId={id} moduleId={modulo._id} isUserCreator={isUserCreator} />
                                 </li>
-                            ) )}
+                            ))}
                         </ul>
                     </div>
                 </div>
             </div>
         </div>
+            <DeleteCourse />
+        </>
+
     );
 }

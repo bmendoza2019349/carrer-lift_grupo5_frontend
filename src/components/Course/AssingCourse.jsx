@@ -56,22 +56,36 @@ export const AssingCourse = ({ switchPublicHandler }) => {
 
 
     return (
-        <div className="mini-ventana">
-            <form>
-                <Input
-                    field="codigo"
-                    label="Codigo:"
-                    value={formState.codigo.value}
-                    onChangeHandler={handleInputValueChange}
-                    type="text"
-                    onBlurHandler={handleInputValidationOnBlur}
-                    showErrorMessage={formState.codigo.showError}
-                    validationMessage={validateCodigodMessage}
-                />
-                <button onClick={handleAssingCourses} disabled={isSubmitButtonDisabled}>
-                    Asignarse al curso
-                </button>
-            </form>
+        <div className="flex flex-col md:flex-row justify-center items-center p-5 space-y-5 md:space-y-0 md:space-x-5 mt-[7rem]">
+            <div className="w-full md:w-1/4">
+                <img src="../public/imgLogoCarr.png" alt="" />
+            </div>
+            <div className="w-full md:w-1/2">
+                <div className="bg-white p-8 rounded-lg shadow-lg border-none">
+                    <form className="space-y-4">
+                        <Input
+                            field="codigo"
+                            label="Codigo:"
+                            value={formState.codigo.value}
+                            onChangeHandler={handleInputValueChange}
+                            type="text"
+                            onBlurHandler={handleInputValidationOnBlur}
+                            showErrorMessage={formState.codigo.showError}
+                            validationMessage={validateCodigodMessage}
+                            className="" // Remover bordes aquí
+                            placeholder={"Ingrese el codigo de asignatura"}
+                        />
+                        <button
+                            onClick={handleAssingCourses}
+                            disabled={isSubmitButtonDisabled}
+                            className="w-full bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 disabled:bg-gray-400 disabled:cursor-not-allowed"
+                        >
+                            Asignarse al curso
+                        </button>
+                    </form>
+                </div>
+            </div>
         </div>
+
     )
 }
