@@ -20,7 +20,7 @@ export const CoursesDescription = ({
     const navigate = useNavigate();
 
     const handleNavigateToAddModulesPage = () => {
-        navigate('./modules');
+        navigate(`../../module/${id}`);
     };
     const handleNavigateToDeleteModulesPage = (modulesId) => {
         navigate(`./modules/${modulesId}`);
