@@ -5,7 +5,7 @@ import { uploadVideos } from './components/videos/uploadVideos.jsx';
 const routes = [
     { path: '/auth', element: <AuthPage /> },
     { path: '/*', element: <DashboardPage /> },
-    {path: '/upload', element: <uploadVideos/>}
+    { path: '/upload', element: <uploadVideos /> }
 ];
 
 export default routes
