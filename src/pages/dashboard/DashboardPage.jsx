@@ -1,4 +1,5 @@
 import { LoadingSpinner } from '../../components/LoadingSpinner'
+import Navbar from '../../components/navbars/Navbar'
 import { useUserDetails } from '../../shared/hooks'
 //import { Navbar } from '../../components/navbars/Navbar'
 //import { Sidebar } from '../../components/navbars/Sidebar'
@@ -11,8 +12,9 @@ export const DashboardPage = () => {
 
     return (
         <>
+            <Navbar />
             <div className="dashboard-container">
-                
+
                 <div className="dashboard-content-container {
 ">
                     {isLogged ? (
