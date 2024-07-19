@@ -129,9 +129,9 @@ export const deleteVideo = async ( courseId, moduleId, videoName ) => {
 
 // ** Modules **
 
-export const createModule = async ( courseId, data ) => {
+export const createModule = async ( id, data ) => {
     try {
-        return await apiClient.post( `/module/${courseId}`, data );
+        return await apiClient.post( `/module/${id}`, data );
     } catch ( e ) {
         return { error: true, e };
     }
