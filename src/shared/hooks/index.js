@@ -4,4 +4,6 @@ export { useRegister } from './useRegister'
 export { logout } from './useLogout'
 export { getModules } from './useGetModules'
 export { useUserDetails } from './useUserDetails'
-
+export { useCreateModule } from './useCreateModule'
+export { usePutModule } from './usePutModule'
+export { useDeleteModule } from './useDeleteModule'
