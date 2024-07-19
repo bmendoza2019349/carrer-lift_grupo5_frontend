@@ -80,7 +80,7 @@ export const AddCourses = ({ switchPublicHandler }) => {
         isLoading || !formState.img.isValid || !formState.nameCourse.isValid || !formState.descripcion.isValid;
 
     return (
-        <div className="flex flex-col md:flex-row justify-center items-center p-5 space-y-5 md:space-y-0 md:space-x-5">
+        <div className="flex flex-col md:flex-row justify-center items-center p-5 space-y-5 md:space-y-0 md:space-x-5 mt-[7rem]">
             <div className="w-full md:w-1/4">
                 <img src="../public/imgLogoCarr.png" alt="" />
             </div>
@@ -97,8 +97,7 @@ export const AddCourses = ({ switchPublicHandler }) => {
                             showErrorMessage={formState.img.showError}
                             validationMessage={imaValidationMessage}
                             placeholder={"Ingrese el link de su imagen"}
-                            className="border border-gray-300"
-
+                            className=""
                         />
                         <Input
                             field="nameCourse"
@@ -110,7 +109,7 @@ export const AddCourses = ({ switchPublicHandler }) => {
                             showErrorMessage={formState.nameCourse.showError}
                             validationMessage={validateTitleMessage}
                             placeholder={"Ingrese el nombre de su curso"}
-                            className="border border-gray-300"
+                            className=""
                         />
                         <Input
                             field="descripcion"
@@ -122,7 +121,7 @@ export const AddCourses = ({ switchPublicHandler }) => {
                             showErrorMessage={formState.descripcion.showError}
                             validationMessage={descriptionValidateMessage}
                             placeholder={"Descripcion"}
-                            className="border border-gray-300"
+                            className=""
                         />
                         <button
                             onClick={handleAddCourse}
@@ -135,5 +134,6 @@ export const AddCourses = ({ switchPublicHandler }) => {
                 </div>
             </div>
         </div>
+
     );
 }
