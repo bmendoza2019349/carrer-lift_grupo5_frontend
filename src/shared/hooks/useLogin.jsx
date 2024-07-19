@@ -15,7 +15,7 @@ export const useLogin = () => {
             email,
             password
         } )
-
+        console.log( response )
         setIsLoading( false )
 
         if ( response.error ) {
@@ -24,10 +24,10 @@ export const useLogin = () => {
         }
 
         const { userDetails } = response.data
-        console.log( 'Login Response:', response.data )
+
         localStorage.setItem( 'user', JSON.stringify( userDetails ) )
 
-        navigate( '/publicaciones' )
+        navigate( '/course' )
     }
     return {
         login,

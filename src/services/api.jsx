@@ -41,15 +41,6 @@ export const assignCourse = async ( data ) => {
     } catch ( error ) {
         return { error: true, error };
     }
-
-};
-
-export const getUserCourses = async () => {
-    try {
-        return await apiClient.get( '/auth/mycourses' );
-    } catch ( error ) {
-        return { error: true, error };
-    }
 };
 
 // ** Courses **
@@ -57,7 +48,7 @@ export const getCourses = async () => {
     try {
         return await apiClient.get( '/course' );
     } catch ( error ) {
-        return { error: true, error };
+        return { error: true };
     }
 };
 
@@ -65,7 +56,7 @@ export const updateCourse = async ( courseId, data ) => {
     try {
         return await apiClient.put( `/course/${courseId}`, data );
     } catch ( error ) {
-        return { error: true, error };
+        return { error: true };
     }
 
 };
@@ -74,19 +65,27 @@ export const deleteCourse = async ( courseId ) => {
     try {
         return await apiClient.delete( `/course/${courseId}` );
     } catch ( error ) {
-        return { error: true, error };
+        return { error: true };
     }
 
 };
 
-export const getCourseById = async ( courseId ) => {
+export const getCourseById = async ( id ) => {
     try {
-        return await apiClient.get( `/course/${courseId}` );
+        return await apiClient.get( `/course/${id}` );
     } catch ( error ) {
         return { error: true, error };
     }
-
 };
+
+export const getCoursesAlumno = async () => {
+    try {
+        return await apiClient.get( "/auth/mycourses" );
+        return response.data;
+    } catch ( error ) {
+        return { error: true };
+    }
+}
 
 // ** Modules **
 export const uploadVideo = async ( courseId, moduleId, files ) => {
