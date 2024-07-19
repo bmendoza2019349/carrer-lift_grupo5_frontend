@@ -1,4 +1,4 @@
-
+export { useAddCourse } from './useAddCourse'
 export { useLogin } from './useLogin'
 export { useRegister } from './useRegister'
 export { logout } from './useLogout'

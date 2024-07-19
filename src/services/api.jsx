@@ -2,7 +2,7 @@ import axios from "axios";
 
 // Configuración base del cliente API
 const apiClient = axios.create( {
-    baseURL: 'https://carrer-lift-grupo5-backend.vercel.app/carrerLiftApi/v1',
+    baseURL: 'http://127.0.0.1:8080/carrerLiftApi/v1',
     timeout: 5000
 } );
 
@@ -43,14 +43,6 @@ export const assignCourse = async ( data ) => {
     }
 };
 
-export const getUserCourses = async () => {
-    try {
-        return await apiClient.get( '/auth/mycourses' );
-    } catch ( error ) {
-        return { error: true, error };
-    }
-};
-
 // ** Courses **
 export const getCourses = async () => {
     try {
@@ -84,13 +76,22 @@ export const deleteCourse = async ( courseId ) => {
     }
 };
 
-export const getCourseById = async ( courseId ) => {
+export const getCourseById = async ( id ) => {
     try {
-        return await apiClient.get( `/course/${courseId}` );
+        return await apiClient.get( `/course/${id}` );
     } catch ( error ) {
         return { error: true, error };
     }
 };
+
+export const getCoursesAlumno = async () => {
+    try {
+        return await apiClient.get( "/auth/mycourses" );
+        return response.data;
+    } catch ( error ) {
+        return { error: true, error };
+    }
+}
 
 // ** Modules **
 export const uploadVideo = async ( courseId, moduleId, files ) => {

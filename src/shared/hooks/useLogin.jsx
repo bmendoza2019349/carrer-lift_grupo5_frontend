@@ -27,7 +27,7 @@ import toast from "react-hot-toast";
     
             localStorage.setItem('user', JSON.stringify(userDetails))
     
-            navigate('/publicaciones')
+            navigate('/course')
         }
         return{
             login,
