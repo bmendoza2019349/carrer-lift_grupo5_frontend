@@ -23,7 +23,7 @@ export const register = async ( data ) => {
     try {
         return await apiClient.post( '/auth/register', data );
     } catch ( error ) {
-        return { error: true, error };
+        return { error: true };
     }
 };
 
@@ -31,7 +31,7 @@ export const login = async ( data ) => {
     try {
         return await apiClient.post( '/auth/login', data );
     } catch ( error ) {
-        return { error: true, error };
+        return { error: true, };
     }
 };
 
@@ -80,12 +80,12 @@ export const updateCourse = async ( courseId, data ) => {
 
 };
 
-export const postCourse = async ( data ) => {
-    try {
-        return await apiClient.post( '/course', data );
-    } catch ( error ) {
-        return { error: true, error };
-    }
+export const postCourses = async (data) => {
+  try {
+    return await apiClient.post('/course', data);
+  } catch (error) {
+    return { error: true, error };
+  }
 };
 
 export const deleteCourse = async ( courseId ) => {

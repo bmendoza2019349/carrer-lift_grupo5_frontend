@@ -1,22 +1,22 @@
 import React from 'react';
-import { getModules } from '../../shared/hooks/useGetModules';
+import { getModules as useGetModules } from '../../shared/hooks/useGetModules';
 
 export const ModulesList = () => {
-    const { modules, loading, error } = getModules();
+    const { modules, loading, error } = useGetModules();
 
     if (loading) {
         return <div>Loading...</div>;
     }
 
     if (error) {
-        return <div>Error loading modules.</div>;
+        return <div>Error: {error.message}</div>;
     }
 
     return (
         <div>
-            <h2>Modules</h2>
+            <h1>Modules List</h1>
             <ul>
-                {modules.map(module => (
+                {modules.map((module) => (
                     <li key={module.id}>{module.name}</li>
                 ))}
             </ul>

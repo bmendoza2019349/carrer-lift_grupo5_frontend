@@ -1,7 +1,7 @@
+
 export { useLogin } from './useLogin'
 export { useRegister } from './useRegister'
 export { logout } from './useLogout'
 export { getModules } from './useGetModules'
 export { useUserDetails } from './useUserDetails'
-export { useCourses } from './useCourses'
-
+export { useCreateModule } from './useCreateModule'
