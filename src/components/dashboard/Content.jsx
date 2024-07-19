@@ -12,12 +12,12 @@ export const Content = ( { courses, getCourses } ) => {
     return (
         <div className="content-container">
             <Routes>
-                <Route path="addCourse" element={<AddCourses />} />
-                <Route path="module/:id" element={<CreateModule />} />
+                <Route path="addCourse" element={<AddCourses />} />//
+                <Route path="module/:id" element={<CreateModule />} />//
                 <Route path="assign" element={<AssingCourse />} />
-                <Route path="course" element={<Courses courses={courses} />} />
+                <Route path="course" element={<Courses courses={courses} />} />//
                 <Route path="course/:id/coDelete" element={<DeleteCourse />} />
-                <Route path="course/:id" element={<CoursesView getCourses={getCourses} />} />
+                <Route path="course/:id" element={<CoursesView getCourses={getCourses} />} />//
                 <Route path="modules/:id/:moduleId" element={<DeleteModule />} /> 
             </Routes>
         </div>
