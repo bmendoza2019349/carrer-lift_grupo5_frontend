@@ -3,6 +3,7 @@ import { AddCourses } from "../courses/AddCourses";
 import { Courses } from "../courses/Courses";
 import { CoursesView } from "../courses/CoursesView";
 import { AssingCourse } from "../courses/AssingCourse";
+import { DeleteCourse } from "../courses/DeleteCourse";
 
 export const Content = ({ courses, getCourses }) => {
     return (
@@ -11,6 +12,7 @@ export const Content = ({ courses, getCourses }) => {
                 <Route path="addCourse" element={<AddCourses />} />
                 <Route path="assign" element={<AssingCourse />} />
                 <Route path="course" element={<Courses courses={courses} />} />
+                <Route path="course/:id/coDelete" element={<DeleteCourse/>}/>
                 <Route path="course/:id" element={<CoursesView getCourses={getCourses}/>}/>
             </Routes>
         </div>
