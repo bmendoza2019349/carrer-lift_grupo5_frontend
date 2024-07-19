@@ -13,4 +13,5 @@ export { useGetVideos } from './useGetVideos'
 export { useDeleteVideo } from './useDeleteVideo'
 
 export { useCoursesDetails } from './useCoursesDetails'
-export { useAssignCourse } from './useAssignCourse'
+export { useAssignCourse} from './useAssignCourse'
+export { usePutCourse } from './usePutCourse'
