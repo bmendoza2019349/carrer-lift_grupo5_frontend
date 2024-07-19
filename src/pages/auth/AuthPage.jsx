@@ -3,9 +3,9 @@ import { Login } from "../../components/login/Login"
 import { Register } from "../../components/login/Register"
 
 export const AuthPage = () => {
-    const [isLogin, setIsLogin] = useState( true )
+    const [isLogin, setIsLogin] = useState(true)
     const handleAuthPageToggle = () => {
-        setIsLogin( ( prev ) => !prev )
+        setIsLogin((prev) => !prev)
     }
     return (
         <div>
