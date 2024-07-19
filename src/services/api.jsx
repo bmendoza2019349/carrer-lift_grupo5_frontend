@@ -68,7 +68,7 @@ export const updateCourse = async (courseId, data) => {
   }
 };
 
-export const postCourse = async (data) => {
+export const postCourses = async (data) => {
   try {
     return await apiClient.post('/course', data);
   } catch (error) {

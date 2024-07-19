@@ -1,8 +1,9 @@
 import { useState, useEffect, useCallback } from 'react';
-import { getCourses as getCoursesRequest } from '../../services';
-import toast from 'react-hot-toast'; // Ensure the path is correct based on your project structure
+import { getCourses as getCoursesRequest, postCourses as postCoursesRequest } from '../../services';
+import toast from 'react-hot-toast';
+import { Navigate } from 'react-router-dom';
 
-const useCourses = () => {
+export const useCourses = () => {
     const [courses, setCourses] = useState( [] );
     const [loading, setLoading] = useState( true );
     const [error, setError] = useState( null );
@@ -15,20 +16,44 @@ const useCourses = () => {
             if ( result.error ) {
                 throw new Error( result.message );
             }
-            setCourses( result );
+            console.log( 'Cursos:', result.data )
+            Array.isArray( result.data.courses ) ?
+                setCourses( result.data.courses ) :
+                console.log( 'El resultado no es un array' )
         } catch ( err ) {
             setError( err.message );
             toast.error( err.message );
-        } finally {
-            setLoading( false );
         }
+        setLoading( false );
     }, [] );
 
     useEffect( () => {
         fetchCourses();
     }, [fetchCourses] );
 
-    return { courses, loading, error, refetch: fetchCourses };
-};
+    useEffect(
+        () => {
 
-export default useCourses;
+        }, [courses]
+    )
+
+
+    const postCourses = useCallback( async ( data ) => {
+        setLoading( true );
+        setError( null );
+        try {
+            const result = await postCoursesRequest( data );
+            console.log( 'Post Data:', data )
+            if ( result.error ) {
+                throw new Error( result.message );
+            }
+            setCourses( ( existCursos ) => [...existCursos, result] );
+            Navigate( '/courses' )
+        } catch ( err ) {
+            setError( err.message )
+            toast.error( err.message )
+        }
+    } )
+
+    return { courses, loading, error, refetch: fetchCourses, post: postCourses };
+};
