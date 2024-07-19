@@ -33,7 +33,7 @@ export const CoursesDescription = ({
     };
 
     return (
-        <div className="max-w-4xl mx-auto bg-white rounded-2xl shadow-lg overflow-hidden md:max-w-6xl mt-[15rem]">
+        <div className="max-w-4xl mx-auto bg-white rounded-2xl shadow-lg overflow-hidden md:max-w-6xl mt-[7rem]">
             <div className="md:flex">
                 <div className="md:flex-shrink-0">
                     <img className="h-80 w-full object-cover md:h-full md:w-80" src={img} alt="Course Image" />
