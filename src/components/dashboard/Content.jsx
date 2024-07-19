@@ -7,8 +7,9 @@ import { DeleteCourse } from "../Course/DeleteCourse";
 //import { PutCourse } from "../courses/PutCourse";
 import { CreateModule } from "../Modules/CreateModule";
 import { DeleteModule } from "../Modules/DeleteModule";
+import Contact from "./Contact";
 
-export const Content = ( { courses, getCourses } ) => {
+export const Content = ({ courses, getCourses }) => {
     return (
         <div className="content-container">
             <Routes>
@@ -17,8 +18,9 @@ export const Content = ( { courses, getCourses } ) => {
                 <Route path="assign" element={<AssingCourse />} />
                 <Route path="course" element={<Courses courses={courses} />} />//
                 <Route path="course/:id/coDelete" element={<DeleteCourse />} />
-                <Route path="course/:id" element={<CoursesView getCourses={getCourses} />} />//
-                <Route path="modules/:id/:moduleId" element={<DeleteModule />} /> 
+                <Route path="course/:id" element={<CoursesView getCourses={getCourses} />} />
+                <Route path="modules/:id/:moduleId" element={<DeleteModule />} />
+                <Route path="contact" element={<Contact />} />
             </Routes>
         </div>
     )

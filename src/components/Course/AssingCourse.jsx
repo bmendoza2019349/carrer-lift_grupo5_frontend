@@ -58,7 +58,7 @@ export const AssingCourse = ({ switchPublicHandler }) => {
     return (
         <div className="flex flex-col md:flex-row justify-center items-center p-5 space-y-5 md:space-y-0 md:space-x-5 mt-[7rem]">
             <div className="w-full md:w-1/4">
-                <img src="../public/imgLogoCarr.png" alt="" />
+                <img src="https://i.postimg.cc/8cbFKHwn/img-Logo-Carrer-L.png" alt="" />
             </div>
             <div className="w-full md:w-1/2">
                 <div className="bg-white p-8 rounded-lg shadow-lg border-none">
