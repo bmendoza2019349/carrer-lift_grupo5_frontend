@@ -17,7 +17,7 @@ export const CoursesView = () => {
         return <LoadingSpinner/>;
     }
 
-    const courses = coursesDetails.data.courses;
+    const courses = coursesDetails.data.course;
 
     return (
         <div>
