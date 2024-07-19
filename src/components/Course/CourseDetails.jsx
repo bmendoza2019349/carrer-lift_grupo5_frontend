@@ -3,6 +3,7 @@ import axios from "axios";
 import { useUserDetails } from "../../shared/hooks";
 import { ModuleVideos } from "./ModuleVideos";
 import { DeleteCourse } from "./DeleteCourse";
+import { DeleteModule } from "../Modules/DeleteModule";
 
 const CoursesImg = ({ url }) => {
     return (
@@ -57,6 +58,7 @@ export const CoursesDescription = ({
                                 Agregar Modulos
                             </button>
                         )}
+                        <DeleteModule />
                         <ul className="mt-6 space-y-4">
                             {modulos && modulos.map((modulo) => (
                                 <li key={modulo._id} className="p-6 bg-gray-100 rounded-md">
