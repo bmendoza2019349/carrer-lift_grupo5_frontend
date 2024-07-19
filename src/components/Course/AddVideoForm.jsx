@@ -1,9 +1,9 @@
 import { useState } from "react";
-import { addUrlsToModule } from '../../shared//hooks'
+import { useAddUrlsToModule } from '../../shared/hooks'
 
-export const addVideoForm = ( { courseId, moduleId } ) => {
+export const AddVideoForm = ( { courseId, moduleId } ) => {
     const [videoLink, setVideoLink] = useState( '' )
-    const { addUrls, loading, success, error } = addUrlsToModule
+    const { addUrls, loading, success, error } = useAddUrlsToModule()
 
 
     const handleSubmit = async ( e ) => {

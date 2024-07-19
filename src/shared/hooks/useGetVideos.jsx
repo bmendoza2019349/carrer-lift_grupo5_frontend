@@ -12,10 +12,16 @@ export const useGetVideos = ( courseId, moduleId ) => {
                 const response = await getVideosRequest( courseId, moduleId );
                 if ( response.error ) {
                     console.error( 'Error presente:', response.error )
+                } else {
+                    console.log( 'Video data: ', response.data )
+                    setVideos( response.data.videos || [] );
                 }
-                setVideos( response.data );
+
+
             } catch ( e ) {
                 setError( e );
+
+            } finally {
                 setLoading( false )
             }
         }

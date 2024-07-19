@@ -11,6 +11,7 @@ export const DeleteVideoButton = ( { courseId, moduleId, videoName } ) => {
             <button onClick={handleDelete} disabled={loading}>Delete</button>
             {success && <p>Video borrado con éxito!</p>}
             {error && <p>Error al borrar el video: {error}</p >}
+            {console.log( 'Error del boton: ', { error } )}
         </div>
     )
 }

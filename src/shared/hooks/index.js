@@ -1,5 +1,5 @@
 export { useCourses } from './useCourses'
-//export { addUrlsToModule } from './useAddUrlsToModule'
+export { useAddUrlsToModule } from './useAddUrlsToModule'
 export { useAddCourse } from './useAddCourse'
 export { useLogin } from './useLogin'
 export { useRegister } from './useRegister'
@@ -13,5 +13,5 @@ export { useGetVideos } from './useGetVideos'
 export { useDeleteVideo } from './useDeleteVideo'
 
 export { useCoursesDetails } from './useCoursesDetails'
-export { useAssignCourse} from './useAssignCourse'
+export { useAssignCourse } from './useAssignCourse'
 export { usePutCourse } from './usePutCourse'
