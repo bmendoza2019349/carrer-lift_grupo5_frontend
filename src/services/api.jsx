@@ -50,20 +50,10 @@ export const getUserCourses = async () => {
     } catch ( error ) {
         return { error: true, error };
     }
-    try {
-        return await apiClient.get( '/auth/mycourses' );
-    } catch ( error ) {
-        return { error: true, error };
-    }
 };
 
 // ** Courses **
 export const getCourses = async () => {
-    try {
-        return await apiClient.get( '/course' );
-    } catch ( error ) {
-        return { error: true, error };
-    }
     try {
         return await apiClient.get( '/course' );
     } catch ( error ) {
@@ -78,14 +68,6 @@ export const updateCourse = async ( courseId, data ) => {
         return { error: true, error };
     }
 
-};
-
-export const postCourses = async (data) => {
-  try {
-    return await apiClient.post('/course', data);
-  } catch (error) {
-    return { error: true, error };
-  }
 };
 
 export const deleteCourse = async ( courseId ) => {
