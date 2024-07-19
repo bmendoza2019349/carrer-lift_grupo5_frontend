@@ -4,6 +4,7 @@ import { Courses } from "../courses/Courses";
 import { CoursesView } from "../courses/CoursesView";
 import { AssingCourse } from "../courses/AssingCourse";
 import { DeleteCourse } from "../courses/DeleteCourse";
+//import { PutCourse } from "../courses/PutCourse";
 
 export const Content = ({ courses, getCourses }) => {
     return (
