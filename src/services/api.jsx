@@ -52,9 +52,9 @@ export const getCourses = async () => {
     }
 };
 
-export const updateCourse = async ( courseId, data ) => {
+export const updateCourse = async ( id, data ) => {
     try {
-        return await apiClient.put( `/course/${courseId}`, data );
+        return await apiClient.put( `/course/${id}`, data );
     } catch ( e ) {
         return { error: true, e };
     }
@@ -68,9 +68,9 @@ export const postCourses = async ( data ) => {
     }
 };
 
-export const deleteCourse = async ( courseId ) => {
+export const deleteCourse = async ( id ) => {
     try {
-        return await apiClient.delete( `/course/${courseId}` );
+        return await apiClient.delete( `/course/${id}` );
     } catch ( e ) {
         return { error: true, e };
     }
