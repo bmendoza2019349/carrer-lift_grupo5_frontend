@@ -6,14 +6,13 @@ import { Content } from "../../components/dashboard/Content";
 import { useCourses } from "../../shared/hooks/useCourses";
 
 
-import './dashboardPage.css'
+import CardMotion from "../../components/dashboard/CardMotion";
 export const DashboardPage = () => {
     const { getCourses, allCourses, isFetching } = useCourses();
     const { isLogged } = useUserDetails();
 
     useEffect(() => {
         getCourses(isLogged);
-
     }, []);
 
     if (isFetching) {
@@ -23,6 +22,7 @@ export const DashboardPage = () => {
     return (
         <div className="dashboard-container">
             <Navbar />
+            <CardMotion />
             <Content courses={allCourses || []} getCourses={getCourses} />
         </div>
     );
