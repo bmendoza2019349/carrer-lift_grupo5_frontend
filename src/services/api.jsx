@@ -2,7 +2,7 @@ import axios from "axios";
 
 // Configuración base del cliente API
 const apiClient = axios.create( {
-    baseURL: 'http://127.0.0.1:8080/carrerLiftApi/v1',
+    baseURL: 'https://carrer-lift-grupo5-backend.vercel.app/carrerLiftApi/v1',
     timeout: 5000
 } );
 
@@ -48,7 +48,7 @@ export const getCourses = async () => {
     try {
         return await apiClient.get( '/course' );
     } catch ( error ) {
-        return { error: true, error };
+        return { error: true };
     }
 };
 
@@ -56,7 +56,7 @@ export const updateCourse = async ( courseId, data ) => {
     try {
         return await apiClient.put( `/course/${courseId}`, data );
     } catch ( error ) {
-        return { error: true, error };
+        return { error: true };
     }
 };
 
@@ -64,7 +64,7 @@ export const postCourses = async (data) => {
   try {
     return await apiClient.post('/course', data);
   } catch (error) {
-    return { error: true, error };
+    return { error: true };
   }
 };
 
@@ -72,7 +72,7 @@ export const deleteCourse = async ( courseId ) => {
     try {
         return await apiClient.delete( `/course/${courseId}` );
     } catch ( error ) {
-        return { error: true, error };
+        return { error: true };
     }
 };
 
@@ -80,7 +80,7 @@ export const getCourseById = async ( id ) => {
     try {
         return await apiClient.get( `/course/${id}` );
     } catch ( error ) {
-        return { error: true, error };
+        return { error: true };
     }
 };
 
@@ -89,7 +89,7 @@ export const getCoursesAlumno = async () => {
         return await apiClient.get( "/auth/mycourses" );
         return response.data;
     } catch ( error ) {
-        return { error: true, error };
+        return { error: true };
     }
 }
 
