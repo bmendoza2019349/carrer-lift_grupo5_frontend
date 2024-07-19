@@ -1,59 +1,106 @@
 import React, { useState } from 'react';
+import { Input } from "../Input";   
 import { useCreateModule } from '../../shared/hooks/useCreateModule';
 import { toast } from 'react-hot-toast';
 
-export const CreateModule = ({ courseId }) => {
-  const [nameModule, setNameModule] = useState('');
-  const [descriptionModule, setDescriptionModule] = useState('');
+import {
+  validateDescription,
+  validateTitle,
+  descriptionValidateMessage,
+  validateTitleMessage,
+} from "../../shared/validators";
 
-  const { postModule, loading, success, error } = useCreateModule();
+import { useParams } from "react-router-dom";
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+export const CreateModule = () => {
+  const { postModule, isLoading } = useCreateModule()
 
-    const moduleData = {
-      nameModule,
-      descriptionModule,
-    };
+  const { id } = useParams();
 
-    await postModule(courseId, moduleData);
+  const [formState, setFormState] = useState({
+    nameModule: {
+      value: "",
+      isValid: false,
+      showError: false,
+    },
+    descriptionModule: {
+      value: "",
+      isValid: false,
+      showError: false,
+    },
+  });
 
-    if (success) {
-      toast.success('Module added successfully!');
-      setNameModule('');
-      setDescriptionModule('');
+  const handleInputValueChange = (value, field) => {
+    setFormState((prevState) => ({
+      ...prevState,
+      [field]: {
+        ...prevState[field],
+        value,
+      },
+    }));
+  }
+
+  const handleInputValidationOnBlur = (value, field) => {
+    let isValid = false;
+    switch (field) {
+      case "nameModule":
+        isValid = validateTitle(value);
+        break;
+      case "descriptionModule":
+        isValid = validateDescription(value);
+        break;
+      default:
+        break;
     }
 
-    if (error) {
-      toast.error(`Error: ${error.message}`);
-    }
+    setFormState((prevState) => ({
+      ...prevState,
+      [field]: {
+        ...prevState[field],
+        isValid,
+        showError: !isValid,
+      },
+    }));
+
   };
 
+  const handleAddModule = (event) => {
+    event.preventDefault();
+    postModule(id, formState.nameModule.value, formState.descriptionModule.value,);
+
+  }
+
+  const isSubmitButtonDisabled =
+    isLoading || !formState.nameModule.isValid || !formState.descriptionModule.isValid
+
+
   return (
-    <form onSubmit={handleSubmit}>
-      <div>
-        <label htmlFor="nameModule">Module Name:</label>
-        <input
+    <div className="mini-ventana">
+      <form>
+        <Input
+          field="nameModule"
+          label="Name Module"
+          value={formState.nameModule.value}
+          onChangeHandler={handleInputValueChange}
           type="text"
-          id="nameModule"
-          value={nameModule}
-          onChange={(e) => setNameModule(e.target.value)}
-          required
+          onBlurHandler={handleInputValidationOnBlur}
+          showErrorMessage={formState.nameModule.showError}
+          validationMessage={descriptionValidateMessage}
         />
-      </div>
-      <div>
-        <label htmlFor="descriptionModule">Description:</label>
-        <textarea
-          id="descriptionModule"
-          value={descriptionModule}
-          onChange={(e) => setDescriptionModule(e.target.value)}
-          required
+        <Input
+          field="descriptionModule"
+          label="Descripcion"
+          value={formState.descriptionModule.value}
+          onChangeHandler={handleInputValueChange}
+          type="text"
+          onBlurHandler={handleInputValidationOnBlur}
+          showErrorMessage={formState.descriptionModule.showError}
+          validationMessage={validateTitleMessage}
         />
-      </div>
-      <button type="submit" disabled={loading}>
-        {loading ? 'Adding Module...' : 'Add Module'}
-      </button>
-      {error && <p style={{ color: 'red' }}>{error.message}</p>}
-    </form>
+        <button onClick={handleAddModule} id="id" disabled={isSubmitButtonDisabled}>
+          Agregar Modulo
+        </button>
+      </form>
+    </div>
   );
 };

@@ -1,26 +1,34 @@
-import { useState } from 'react';
-import { createModule as CreateModules } from '../../services';
+import { useState } from "react";
+import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
+import { createModule as CreateModulesRequest } from '../../services';
 
 export const useCreateModule = () => {
-  const [loading, setLoading] = useState(false);
-  const [success, setSuccess] = useState(false);
-  const [error, setError] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
+  const navigate = useNavigate()
 
-  const postModule = async (courseId, data) => {
-    setLoading(true);
-    setSuccess(false);
-    setError(null);
+  const postModule = async (id, nameModule, descriptionModule) => {
+    setIsLoading(true);
+    try {
+      const response = await CreateModulesRequest(
+        { id }, { nameModule }, { descriptionModule }
+      )
+      setIsLoading(false)
+      if (response.error) {
+        console.log(response.error)
+        return toast.error(response.e?.response?.data || 'Ocurrió un error al modular, intenta de nuevo')
 
-    const response = await CreateModules(courseId, data);
-
-    if (response.error) {
-      setError(response.error);
-    } else {
-      setSuccess(true);
+      }
+      navigate(`/course/${id}`)
+    } catch (error) {
+      setIsLoading(false);
+      console.error('Add module failed', error);
+      toast.error('Ocurrió un error al agregar modulo, intenta de nuevo');
     }
-
-    setLoading(false);
   };
 
-  return { postModule, loading, success, error };
+  return { 
+    postModule, 
+    isLoading
+  };
 };

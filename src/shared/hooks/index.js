@@ -1,5 +1,5 @@
 export { useCourses } from './useCourses'
-export { useAddUrlsToModule } from './useAddUrlsToModule'
+//export { addUrlsToModule } from './useAddUrlsToModule'
 export { useAddCourse } from './useAddCourse'
 export { useLogin } from './useLogin'
 export { useRegister } from './useRegister'
