@@ -11,15 +11,18 @@ export const useCreateModule = () => {
     setIsLoading(true);
     try {
       const response = await CreateModulesRequest(
-        { id }, { nameModule }, { descriptionModule }
-      )
-      setIsLoading(false)
+        { id }, { nameModule ,  descriptionModule }
+      );
+      console.log('Response:', response);
+
+      navigate('/course')
       if (response.error) {
         console.log(response.error)
         return toast.error(response.e?.response?.data || 'Ocurrió un error al modular, intenta de nuevo')
 
       }
-      navigate(`/course/${id}`)
+      setIsLoading(false)
+
     } catch (error) {
       setIsLoading(false);
       console.error('Add module failed', error);

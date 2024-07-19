@@ -11,7 +11,7 @@ export const CoursesView = () => {
 
     useEffect(() => {
         getCourseDetails(id);
-    }, []);
+    }, [id]);
     
     if(isFetching){
         return <LoadingSpinner/>;

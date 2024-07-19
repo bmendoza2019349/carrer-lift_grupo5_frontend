@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Input } from "../Input";   
+import { Input } from "../Input";
 import { useCreateModule } from '../../shared/hooks/useCreateModule';
 import { toast } from 'react-hot-toast';
 
@@ -10,7 +10,7 @@ import {
   validateTitleMessage,
 } from "../../shared/validators";
 
-import { useParams } from "react-router-dom";
+import { Navigate, useParams } from "react-router-dom";
 
 export const CreateModule = () => {
   const { postModule, isLoading } = useCreateModule()
@@ -67,7 +67,6 @@ export const CreateModule = () => {
   const handleAddModule = (event) => {
     event.preventDefault();
     postModule(id, formState.nameModule.value, formState.descriptionModule.value,);
-
   }
 
   const isSubmitButtonDisabled =
@@ -76,31 +75,34 @@ export const CreateModule = () => {
 
   return (
     <div className="mini-ventana">
-      <form>
-        <Input
-          field="nameModule"
-          label="Name Module"
-          value={formState.nameModule.value}
-          onChangeHandler={handleInputValueChange}
-          type="text"
-          onBlurHandler={handleInputValidationOnBlur}
-          showErrorMessage={formState.nameModule.showError}
-          validationMessage={descriptionValidateMessage}
-        />
-        <Input
-          field="descriptionModule"
-          label="Descripcion"
-          value={formState.descriptionModule.value}
-          onChangeHandler={handleInputValueChange}
-          type="text"
-          onBlurHandler={handleInputValidationOnBlur}
-          showErrorMessage={formState.descriptionModule.showError}
-          validationMessage={validateTitleMessage}
-        />
-        <button onClick={handleAddModule} id="id" disabled={isSubmitButtonDisabled}>
-          Agregar Modulo
-        </button>
-      </form>
+      {isLoading == true ? (<h1>cargando....</h1>) : (
+        <form>
+          <Input
+            field="nameModule"
+            label="Name Module"
+            value={formState.nameModule.value}
+            onChangeHandler={handleInputValueChange}
+            type="text"
+            onBlurHandler={handleInputValidationOnBlur}
+            showErrorMessage={formState.nameModule.showError}
+            validationMessage={descriptionValidateMessage}
+          />
+          <Input
+            field="descriptionModule"
+            label="Descripcion"
+            value={formState.descriptionModule.value}
+            onChangeHandler={handleInputValueChange}
+            type="text"
+            onBlurHandler={handleInputValidationOnBlur}
+            showErrorMessage={formState.descriptionModule.showError}
+            validationMessage={validateTitleMessage}
+          />
+          <button onClick={handleAddModule} id="id" disabled={isSubmitButtonDisabled}>
+            Agregar Modulo
+          </button>
+        </form>
+      )}
+
     </div>
   );
 };
