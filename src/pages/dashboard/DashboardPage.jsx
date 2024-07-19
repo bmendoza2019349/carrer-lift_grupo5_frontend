@@ -22,7 +22,6 @@ export const DashboardPage = () => {
     return (
         <div className="dashboard-container">
             <Navbar />
-            <CardMotion />
             <Content courses={allCourses || []} getCourses={getCourses} />
         </div>
     );
