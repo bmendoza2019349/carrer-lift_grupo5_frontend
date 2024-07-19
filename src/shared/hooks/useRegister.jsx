@@ -8,28 +8,28 @@ export const useRegister = () => {
 
     const navigate = useNavigate()
 
-    const register = async ( email, username, password ) => {
+    const register = async ( username, email, password ) => {
         setIsLoading( true )
 
         try {
             const response = await registerRequest( {
-                email,
                 username,
+                email,
                 password,
             } )
             setIsLoading( false )
-    
+
             if ( response.error ) {
                 return toast.error( response.e?.response?.data ) || 'Ocurrió un error al registrarse, intenta de nuevo.'
             }
-    
+
             const { userDetails } = response.data
-    
+
             navigate( '/auth' )
-        } catch (error) {
-            setIsLoading(false);
-            console.error('Registration failed', error);
-            toast.error('Ocurrió un error al registrarse, intenta de nuevo');
+        } catch ( error ) {
+            setIsLoading( false );
+            console.error( 'Registration failed', error );
+            toast.error( 'Ocurrió un error al registrarse, intenta de nuevo' );
         }
     }
 
