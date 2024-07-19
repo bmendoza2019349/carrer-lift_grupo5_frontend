@@ -22,8 +22,8 @@ export const CoursesDescription = ({
     const handleNavigateToAddModulesPage = () => {
         navigate(`../../module/${id}`);
     };
-    const handleNavigateToDeleteModulesPage = (modulesId) => {
-        navigate(`./modules/${modulesId}`);
+    const handleNavigateToDeleteModulesPage = (moduleId) => {
+        navigate(`./${moduleId}`);
     };
     const handleNavigateToEditModulesPage = () => {
         navigate('./updateMo');
@@ -49,6 +49,12 @@ export const CoursesDescription = ({
                             onClick={handleNavigateToAddModulesPage}
                         >
                             Agregar Modulos
+                        </button>
+                        <button
+                            className="mt-4 px-8 py-4 bg-blue-500 text-white text-sm font-semibold rounded-md hover:bg-blue-700 mx-4"
+                            onClick={handleNavigateToDeleteModulesPage}
+                        >
+                            Eliminar Modulos
                         </button>
                         <ul className="mt-6 space-y-4">
                             {modulos && modulos.map((modulos, index) => (

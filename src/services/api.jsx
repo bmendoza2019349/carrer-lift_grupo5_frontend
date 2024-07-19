@@ -153,9 +153,9 @@ export const updateModule = async ( courseId, moduleId, data ) => {
     }
 };
 
-export const deleteModule = async ( courseId, moduleId ) => {
+export const deleteModule = async (id, moduleId ) => {
     try {
-        return await apiClient.delete( `/modules/${courseId}/${moduleId}` );
+        return await apiClient.delete( `/modules/${id}/${moduleId}` );
     } catch ( error ) {
         return { error: true, e };
     }

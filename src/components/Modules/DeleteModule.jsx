@@ -1,30 +1,26 @@
-import React, { useState } from 'react';
 import { useDeleteModule } from '../../shared/hooks/useDeleteModule';
+import { useParams } from 'react-router-dom';
+import toast from 'react-hot-toast';
 
-export const DeleteModule = ({ courseId, moduleId }) => {
-    const { loading, error, deletedModule, deleteModuleById } = useDeleteModule();
+export const DeleteModule = () => {
+    const {id} = useParams();
+    const {deleteModule, isLoading} = useDeleteModule();
 
-    const handleDelete = async () => {
-        try {
-            await deleteModuleById(courseId, moduleId);
-        } catch (error) {
-            console.error('Error deleting module:', error);
-        }
-    };
+    const handleDeleteModule = () => {
+        toast.promise(
+            deleteModule(id),
+            {
+                loading: 'Eliminando modulo...',
+                success: 'modulo eliminado exitosamente',
+                error: (error) => `Ocurrió un error al eliminar el modulo: ${error}`
+            }
+        )
+    }
 
-    return (
-        <div>
-            {loading && <p>Deleting module...</p>}
-            {error && <p>Error: {error}</p>}
-            {deletedModule && (
-                <div>
-                    <p>Module deleted successfully:</p>
-                    <pre>{JSON.stringify(deletedModule, null, 2)}</pre>
-                </div>
-            )}
-            <button onClick={handleDelete} disabled={loading}>
-                Delete Module
-            </button>
+    return(
+        <div className='boton-eliminar'>
+            <h2>Deseas Eliminar ?</h2>
+            <button onClick={handleDeleteModule} disabled={isLoading}>Eliminar Modulo</button>
         </div>
-    );
+    )
 };
