@@ -12,16 +12,17 @@ const getUserDetails = () => {
 
 export const useUserDetails = () => {
     const [userDetails, setUserDetails] = useState( getUserDetails() );
-
+    //pull commen
     const logout = () => {
         logoutHandler();
-        setUserDetails(null);
+        setUserDetails( null );
     };
 
     return {
         isLogged: Boolean( userDetails ),
         username: userDetails?.username ? userDetails.username : "Guest",
         roleUser: userDetails?.roleUser,
+        email: userDetails?.email ? userDetails.email : '',
         logout,
     };
 };
