@@ -16,4 +16,3 @@ export const Content = ({ courses, getCourses }) => {
         </div>
     )
 }
-
