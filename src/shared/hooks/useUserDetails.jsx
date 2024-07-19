@@ -12,7 +12,7 @@ const getUserDetails = () => {
 
 export const useUserDetails = () => {
     const [userDetails, setUserDetails] = useState( getUserDetails() );
-    //pull comment
+    //pull commen
     const logout = () => {
         logoutHandler();
         setUserDetails( null );
