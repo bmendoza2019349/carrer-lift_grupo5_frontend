@@ -23,7 +23,7 @@ export const register = async ( data ) => {
     try {
         return await apiClient.post( '/auth/register', data );
     } catch ( error ) {
-        return { error: true };
+        return { error: true , e};
     }
 };
 
@@ -31,7 +31,7 @@ export const login = async ( data ) => {
     try {
         return await apiClient.post( '/auth/login', data );
     } catch ( error ) {
-        return { error: true, };
+        return { error: true, e};
     }
 };
 
@@ -39,7 +39,7 @@ export const assignCourse = async ( data ) => {
     try {
         return await apiClient.post( '/auth/assign', data );
     } catch ( error ) {
-        return { error: true, error };
+        return { error: true , e};
     }
 };
 
@@ -48,7 +48,7 @@ export const getCourses = async () => {
     try {
         return await apiClient.get( '/course' );
     } catch ( error ) {
-        return { error: true };
+        return { error: true, e };
     }
 };
 
@@ -56,7 +56,7 @@ export const updateCourse = async ( courseId, data ) => {
     try {
         return await apiClient.put( `/course/${courseId}`, data );
     } catch ( error ) {
-        return { error: true };
+        return { error: true, e };
     }
 };
 
@@ -64,7 +64,7 @@ export const postCourses = async (data) => {
   try {
     return await apiClient.post('/course', data);
   } catch (error) {
-    return { error: true };
+    return { error: true, e };
   }
 };
 
@@ -72,7 +72,7 @@ export const deleteCourse = async ( courseId ) => {
     try {
         return await apiClient.delete( `/course/${courseId}` );
     } catch ( error ) {
-        return { error: true };
+        return { error: true, e };
     }
 };
 
@@ -80,7 +80,7 @@ export const getCourseById = async ( id ) => {
     try {
         return await apiClient.get( `/course/${id}` );
     } catch ( error ) {
-        return { error: true };
+        return { error: true, e };
     }
 };
 
@@ -89,7 +89,7 @@ export const getCoursesAlumno = async () => {
         return await apiClient.get( "/auth/mycourses" );
         return response.data;
     } catch ( error ) {
-        return { error: true };
+        return { error: true, e };
     }
 }
 
@@ -116,7 +116,7 @@ export const getVideos = async ( courseId, moduleId ) => {
     try {
         return await apiClient.get( `/course/${courseId}/modules/${moduleId}/videos` );
     } catch ( error ) {
-        return { error: true, error };
+        return { error: true, e };
     }
 };
 
@@ -124,7 +124,7 @@ export const deleteVideo = async ( courseId, moduleId, videoName ) => {
     try {
         return await apiClient.delete( `/course/${courseId}/modules/${moduleId}/videos/${videoName}` );
     } catch ( error ) {
-        return { error: true, error };
+        return { error: true, e  };
     }
 };
 
@@ -134,7 +134,7 @@ export const createModule = async ( courseId, data ) => {
     try {
         return await apiClient.post( `/module/${courseId}`, data );
     } catch ( error ) {
-        return { error: true, error };
+        return { error: true, e};
     }
 };
 
@@ -142,7 +142,7 @@ export const getModules = async ( courseId ) => {
     try {
         return await apiClient.get( `/module/${courseId}` );
     } catch ( error ) {
-        return { error: true, error };
+        return { error: true, e };
     }
 };
 
@@ -150,7 +150,7 @@ export const updateModule = async ( courseId, moduleId, data ) => {
     try {
         return await apiClient.put( `/moduleEdit/${courseId}/${moduleId}`, data );
     } catch ( error ) {
-        return { error: true, error };
+        return { error: true , e};
     }
 };
 
@@ -158,7 +158,7 @@ export const deleteModule = async ( courseId, moduleId ) => {
     try {
         return await apiClient.delete( `/${courseId}/${moduleId}` );
     } catch ( error ) {
-        return { error: true, error };
+        return { error: true, e };
     }
 };
 
@@ -167,7 +167,7 @@ export const getModuleById = async ( courseId, moduleId ) => {
     try {
         return await apiClient.get( `/courses/${courseId}/modules/${moduleId}` );
     } catch ( error ) {
-        return { error: true, error };
+        return { error: true, e };
     }
 };
 
@@ -175,7 +175,7 @@ export const addUrlsToModule = async ( courseId, moduleId, urls ) => {
     try {
         return await apiClient.post( `/${courseId}/module/${moduleId}/urls`, { archivos: urls } );
     } catch ( error ) {
-        return { error: true, error };
+        return { error: true, e };
     }
 };
 
@@ -184,8 +184,8 @@ export const addUrlsToModule = async ( courseId, moduleId, urls ) => {
 export const createExam = async ( courseId, data ) => {
     try {
         return await apiClient.post( `/exam/create/${courseId}`, data );
-    } catch ( error ) {
-        return { error: true, error };
+    } catch ( e ) {
+        return { error: true, e };
     }
 };
 
@@ -193,7 +193,7 @@ export const submitExamResponse = async ( data ) => {
     try {
         return await apiClient.post( '/exam/submit-response', data );
     } catch ( error ) {
-        return { error: true, error };
+        return { error: true , e};
     }
 };
 
@@ -201,6 +201,6 @@ export const getStudentResponses = async () => {
     try {
         return await apiClient.get( '/exam/responses' );
     } catch ( error ) {
-        return { error: true, error };
+        return { error: true, e };
     }
 };
