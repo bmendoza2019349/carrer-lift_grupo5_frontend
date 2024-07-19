@@ -14,10 +14,10 @@ import {
 } from "../../shared/validators";
 import { useRegister } from "../../shared/hooks";
 
-export const Register = ({ switchAuthHandler }) => {
+export const Register = ( { switchAuthHandler } ) => {
     const { register, isLoading } = useRegister();
 
-    const [formState, setFormState] = useState({
+    const [formState, setFormState] = useState( {
         email: {
             value: "",
             isValid: false,
@@ -38,49 +38,49 @@ export const Register = ({ switchAuthHandler }) => {
             isValid: false,
             showError: false,
         },
-    });
+    } );
 
-    const handleInputValueChange = (value, field) => {
-        setFormState((prevState) => ({
+    const handleInputValueChange = ( value, field ) => {
+        setFormState( ( prevState ) => ( {
             ...prevState,
             [field]: {
                 ...prevState[field],
                 value,
             },
-        }));
+        } ) );
     };
 
-    const handleInputValidationOnBlur = (value, field) => {
+    const handleInputValidationOnBlur = ( value, field ) => {
         let isValid = false;
-        switch (field) {
+        switch ( field ) {
             case "email":
-                isValid = validateEmail(value);
+                isValid = validateEmail( value );
                 break;
             case "password":
-                isValid = validatePassword(value);
+                isValid = validatePassword( value );
                 break;
             case "passwordConfir":
-                isValid = validateConfirPassword(formState.password.value, value);
+                isValid = validateConfirPassword( formState.password.value, value );
                 break;
             case "username":
-                isValid = validateUsername(value);
+                isValid = validateUsername( value );
                 break;
             default:
                 break;
         }
-        setFormState((prevState) => ({
+        setFormState( ( prevState ) => ( {
             ...prevState,
             [field]: {
                 ...prevState[field],
                 isValid,
                 showError: !isValid,
             },
-        }));
+        } ) );
     };
 
-    const handleRegister = (event) => {
+    const handleRegister = ( event ) => {
         event.preventDefault();
-        register(formState.email.value, formState.password.value, formState.username.value);
+        register( formState.username.value, formState.email.value, formState.password.value, );
     };
 
     const isSubmitButtonDisabled = isLoading ||
