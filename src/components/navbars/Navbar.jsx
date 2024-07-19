@@ -16,9 +16,12 @@ const Navbar = () => {
     };
 
     return (
-        <nav className="bg-gray-800 p-6">
+        <nav className="bg-gray-800 p-4">
             <div className="container mx-auto flex justify-between items-center">
-                <div className="text-white text-2xl font-semibold">MiLogo</div>
+                <div className="flex items-center space-x-4">
+                    <img src="../public/imgLogoCarr.png" alt="Logo" className="w-11 h-11" />
+                    <div className="text-white text-2xl font-semibold">CarrerLift </div>
+                </div>
                 <div className="flex space-x-6">
                     <a href="#home" className="text-gray-300 hover:text-white text-lg">Inicio</a>
                     <a href="#about" className="text-gray-300 hover:text-white text-lg">Acerca</a>
@@ -43,7 +46,7 @@ const Navbar = () => {
                             </div>
                         )}
                     </div>
-                    <a href="#contact" className="text-gray-300 hover:text-white text-lg">Contacto</a>
+                    <a href={"/auth"} className="text-gray-300 hover:text-white text-lg">sign up</a>
                 </div>
             </div>
         </nav>
