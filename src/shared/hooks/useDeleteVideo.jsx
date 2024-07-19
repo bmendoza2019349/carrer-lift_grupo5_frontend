@@ -14,11 +14,14 @@ export const useDeleteVideo = () => {
         try {
             const response = await deleteVideoRequest( courseId, moduleId, videoName )
             if ( response.error ) {
-                console.error( 'Error presente: ', error )
+                setError( response.error )
+            } else {
+                setSuccess( true )
             }
-            setSuccess( true )
+
         } catch ( e ) {
             setError( e.message )
+        } finally {
             setLoading( false )
         }
     }

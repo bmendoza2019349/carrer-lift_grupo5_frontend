@@ -1,5 +1,5 @@
 import { useGetVideos } from "../../shared/hooks";
-import { addVideoForm } from "./AddVideoForm";
+import { AddVideoForm } from "./AddVideoForm";
 import { DeleteVideoButton } from "./DeleteVideoButton";
 
 const extraerUrl = ( url ) => {
@@ -31,7 +31,7 @@ export const ModuleVideos = ( { courseId, moduleId, isUserCreator } ) => {
 
     return (
         <div>
-            {isUserCreator && <addVideoForm courseId={courseId} moduleId={moduleId} />}
+            {isUserCreator && <AddVideoForm courseId={courseId} moduleId={moduleId} />}
             <ul>
                 {videos.map( ( video, index ) => (
                     <li key={index}>

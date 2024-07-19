@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useAddUrlsToModule } from '../../shared/hooks'
 
-export const addVideoForm = ( { courseId, moduleId } ) => {
+export const AddVideoForm = ( { courseId, moduleId } ) => {
     const [videoLink, setVideoLink] = useState( '' )
     const { addUrls, loading, success, error } = useAddUrlsToModule()
 
