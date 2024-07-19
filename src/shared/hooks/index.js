@@ -11,3 +11,6 @@ export { usePutModule } from './usePutModule'
 export { useDeleteModule } from './useDeleteModule'
 export { useGetVideos } from './useGetVideos'
 export { useDeleteVideo } from './useDeleteVideo'
+
+export { useCoursesDetails } from './useCoursesDetails'
+export { useAssignCourse } from './useAssignCourse'

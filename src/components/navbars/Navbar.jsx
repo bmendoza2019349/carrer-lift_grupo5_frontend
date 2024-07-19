@@ -22,9 +22,9 @@ const Navbar = () => {
                     <img src="../public/imgLogoCarr.png" alt="Logo" className="w-11 h-11" />
                     <div className="text-white text-2xl font-semibold">CarrerLift </div>
                 </div>
-                <div className="flex space-x-6">
-                    <a href="#home" className="text-gray-300 hover:text-white text-lg">Inicio</a>
-                    <a href="#about" className="text-gray-300 hover:text-white text-lg">Acerca</a>
+                <div className="flex space-x-9">
+                    <a href={"/course"} className="text-gray-300 hover:text-white text-lg">Inicio</a>
+                    <a href={"/addCourse"} className="text-gray-300 hover:text-white text-lg">Agregar curso</a>
                     <div className="relative">
                         <button
                             onMouseEnter={handleMouseEnter}
