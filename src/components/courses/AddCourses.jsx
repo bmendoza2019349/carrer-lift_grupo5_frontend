@@ -82,10 +82,10 @@ export const AddCourses = ({ switchPublicHandler }) => {
     return (
         <div className="flex flex-col md:flex-row justify-center items-center p-5 space-y-5 md:space-y-0 md:space-x-5">
             <div className="w-full md:w-1/4">
-                <img src="../public/imgLogoCarr.png" alt="" className="rounded-none shadow-lg" />
+                <img src="../public/imgLogoCarr.png" alt="" />
             </div>
             <div className="w-full md:w-1/2">
-                <div className="bg-white p-8 rounded-lg shadow-lg border-none border-gray-300">
+                <div className="bg-white p-8 rounded-lg shadow-lg border-none">
                     <form className="space-y-4">
                         <Input
                             field="img"
@@ -97,7 +97,8 @@ export const AddCourses = ({ switchPublicHandler }) => {
                             showErrorMessage={formState.img.showError}
                             validationMessage={imaValidationMessage}
                             placeholder={"Ingrese el link de su imagen"}
-                            className="border border-gray-300 rounded-lg p-2 focus:ring-2 focus:ring-blue-500"
+                            className="border border-gray-300"
+
                         />
                         <Input
                             field="nameCourse"
@@ -109,7 +110,7 @@ export const AddCourses = ({ switchPublicHandler }) => {
                             showErrorMessage={formState.nameCourse.showError}
                             validationMessage={validateTitleMessage}
                             placeholder={"Ingrese el nombre de su curso"}
-                            className="border border-gray-300 rounded-lg p-2 focus:ring-2 focus:ring-blue-500"
+                            className="border border-gray-300"
                         />
                         <Input
                             field="descripcion"
@@ -121,12 +122,12 @@ export const AddCourses = ({ switchPublicHandler }) => {
                             showErrorMessage={formState.descripcion.showError}
                             validationMessage={descriptionValidateMessage}
                             placeholder={"Descripcion"}
-                            className="border border-gray-300 rounded-lg p-2 focus:ring-2 focus:ring-blue-500"
+                            className="border border-gray-300"
                         />
                         <button
                             onClick={handleAddCourse}
                             disabled={isSubmitButtonDisabled}
-                            className="w-full bg-gradient-to-r from-green-400 to-blue-500 text-white py-2 px-4 rounded-lg hover:from-green-500 hover:to-blue-600 disabled:bg-gray-400 disabled:cursor-not-allowed"
+                            className="w-full bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 disabled:bg-gray-400 disabled:cursor-not-allowed"
                         >
                             Agregar Curso
                         </button>
